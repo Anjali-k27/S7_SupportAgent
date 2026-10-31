@@ -110,13 +110,13 @@ python -m spacy download en_core_web_lg
 Create a `.env` file in the project root:
 
 ```bash
-echo "GOOGLE_API_KEY=your-key-here" > .env
+echo "OPENROUTER_API_KEY=your-openrouter-key-here" > .env
 ```
 
-Or copy and edit the example:
+Optionally specify an OpenRouter model (defaults to `google/gemini-2.5-flash`):
 
 ```bash
-cp .env.example .env   # then fill in your key
+OPENROUTER_MODEL=google/gemini-2.5-flash
 ```
 
 ---
@@ -132,7 +132,7 @@ The server starts at **http://localhost:8000** with hot-reload enabled.
 Expected startup output:
 
 ```
-[System] Gemini 2.5 Flash initialized | temperature=0
+[System] OpenRouter initialized | model=google/gemini-2.5-flash | temperature=0
 [Security] Presidio initialized
 [Security] PII entities monitored: 7
 [Security] Injection patterns: 14
@@ -287,8 +287,8 @@ graph                 = build_master_graph()            # wires both
 
 ## Troubleshooting
 
-**`GOOGLE_API_KEY not set`**
-→ Make sure `.env` exists in the project root with `GOOGLE_API_KEY=your-key`.
+**`OPENROUTER_API_KEY not set`**
+→ Make sure `.env` exists in the project root with `OPENROUTER_API_KEY=your-key`.
 
 **`No module named 'presidio_analyzer'`**
 → Run `pip install -r requirements.txt` inside your virtual environment.
